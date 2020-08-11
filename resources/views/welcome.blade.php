@@ -79,7 +79,32 @@
                 </div>
             @endif
 
-            <div class="content">
+                <button id="openbtn" onclick="myFunction()">Open Login</button>
+                <script>
+                    let wnd;
+
+                    function myFunction() {
+                        wnd = window.open("https://help.uillinois.edu/TDWebApi/api/auth/loginsso", "MsgWindow", "width=400,height=200");
+                        document.getElementById('openbtn').hidden = true;
+                        document.getElementById('sso_code').hidden = false;
+                    }
+
+                    function checkPaste() {
+                        if(document.getElementById('authcode').textContent.length > 50){
+                            document.getElementById('sso_code').submit()
+                        }
+                    }
+
+                </script>
+
+                <form id="sso_code" hidden method="post" action="">
+                    <label>
+                        <input id="authcode" type="text" name="authorization" placeholder="Paste the code here..." onchange="checkPaste()" />
+                    </label>
+                </form>
+
+
+                <div class="content">
                 <div class="title m-b-md">
                     test test test 123
                 </div>

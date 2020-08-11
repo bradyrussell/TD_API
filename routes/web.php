@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('authorize');
 });
+
+Route::post('/', 'AuthKeyController@setAuthKey');
+
+Route::get('/a', 'AuthKeyController@getAuthKey');
+Route::get('/b', 'TDAPIController@getUserDetails');
